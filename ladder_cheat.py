@@ -9,8 +9,8 @@ for names in input_file:
 	player_list.append(names.strip())
 
 # manual input of the challenger and challengee 
-challenger = raw_input('Who was the successful challenger? ')
-challengee = raw_input('Who was the unsuccessful challengee? ')
+challenger = raw_input('Who was the successful challenger? ').lower()
+challengee = raw_input('Who was the unsuccessful challengee? ').lower()
 
 # player_a is the lower ranked challenger and player_b is the higher ranked challengee
 # determines index of challenger and challengee in the list
@@ -27,6 +27,7 @@ bottom = player_list[player_a + 1:]
 # make winner a list instead of a string then concatenate the four lists
 new_player_list = top + [winner] + middle + bottom
 
+print new_player_list
 
 output_file = open('latest_rankings.txt', 'w')
 output_file.write("{}\n".format(new_player_list))
