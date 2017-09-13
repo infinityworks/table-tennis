@@ -63,7 +63,7 @@ def player_scores(pair_list):
 		#	print "You cannot score higher than 21 in this tournament of ping pong"
 
 		#if player_1_score || player_2_score < 0:
-		#	print "No one is this bad at ping pong, please input a score"
+		#	print "No one is this bad at ping pong, please input a score" im still here
 
 		scores = fileediter("results.txt")
 		scores.write(player_1 + " scored " + player_1_score + " - " + player_2 + " scored " + player_2_score + " on " + time.strftime("%d/%m/%Y") + " at " + time.strftime("%H:%M:%S") + "\n" + "\n")
