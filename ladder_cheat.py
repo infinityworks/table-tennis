@@ -27,7 +27,9 @@ bottom = player_list[player_a + 1:]
 # make winner a list instead of a string then concatenate the four lists
 new_player_list = top + [winner] + middle + bottom
 
-print new_player_list
+# write permission
+output_file = open('names.txt', 'w')
 
-output_file = open('latest_rankings.txt', 'w')
-output_file.write("{}\n".format(new_player_list))
+# each player in reordered list added back into 
+for player in new_player_list:
+	output_file.write("{}\n".format(player))
