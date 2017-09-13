@@ -2,38 +2,39 @@ import unittest
 import random
 import time
 
-class test(unittest.TestCase):
 
-	def test_tournament_draftrandomiseplayers_returnrandomisedlist(self):
+# This is the function that will attempt to read files and throw an error if it is unable to do so.
+def filereader(file):
+	try:
+		f = open(file, "r")
+		return f
+	except IOError:
+		print "Sorry old chap, file " + file + " has been lost to the wind."
+		exit()
+
+# This is the function that will attempt to edit and append files and throw an error if it is unable to do so.
+def fileediter(file):
+	try:
+		f2 = open(file, "a")
+		return f2
+	except IOError:
+		print "Sorry old chap, file " + file + " has been lost to the wind."
+		exit()
+
+#class test(unittest.TestCase):
+
+	#def test_tournament_draftrandomiseplayers_returnrandomisedlist(self):
 		#
-		testCalculator = tournament()
+	#	testTournament = tournament()
 
 		#
-		result = testCalculator.draft([alfonso,ben,clarence,dill])
+	#	result = testTournament.draft([alfonso,ben,clarence,dill])
 		#test?
-		#self.assertEqual(0,result)
-
+		# The issue here is the random function that is kind of difficult to test.
+		#self.assertEqual(result)
 
 
 class tournament():
-
-	# This is the function that will attempt to read files and throw an error if it is unable to do so.
-	def filereader(file):
-		try:
-			f = open(file, "r")
-			return f
-		except IOError:
-			print "Sorry old chap, file " + file + " has been lost to the wind."
-			exit()
-
-	# This is the function that will attempt to edit and append files and throw an error if it is unable to do so.
-	def fileediter(file):
-		try:
-			f2 = open(file, "a")
-			return f2
-		except IOError:
-			print "Sorry old chap, file " + file + " has been lost to the wind."
-			exit()
 
 	# This method takes in a file that contains seperated player names, it will strip and randomly shuffle the names
 	# into pairs and place these into a pair array, it continues to do this until all the players have been selected.
@@ -72,8 +73,8 @@ class tournament():
 			player_1 = pair[0]
 			player_2 = pair[1]
 			print "Game between " + player_1 + " and " + player_2
-			player_1_score = raw_input("Player 1 Score? ")
-			player_2_score = raw_input("Player 2 Score? ")
+			player_1_score = int(raw_input("Player 1 Score? "))
+			player_2_score = int(raw_input("Player 2 Score? "))
 
 			#if player_1_score || player_2_score > 21:
 			#	print "You cannot score higher than 21 in this tournament of ping pong"
@@ -82,8 +83,18 @@ class tournament():
 			#	print "No one is this bad at ping pong, please input a score"
 
 			scores = fileediter("results.txt")
-			scores.write(player_1 + " scored " + player_1_score + " - " + player_2 + " scored " + player_2_score + " on " + time.strftime("%d/%m/%Y") + " at " + time.strftime("%H:%M:%S") + "\n" + "\n")
+			winner = []
+			if player_1_score < player_2_score:
+				winner.append(player_2)
+			else:
+				winner.append(player_1)
 
+			scores.write(player_1 + " scored " + str(player_1_score) + " - " + 
+				player_2 + " scored " + str(player_2_score) + " on " + time.strftime("%d/%m/%Y") + 
+				" at " + time.strftime("%H:%M:%S") + "\n" + "The winner is - " + winner[0] + "\n")
+			print winner
+
+		return winner[0]
 
 	player_info = filereader("t-players.txt")
 
@@ -94,3 +105,13 @@ class tournament():
 
 if __name__ == '__main__':
     unittest.main()
+
+
+
+
+
+
+
+
+
+
