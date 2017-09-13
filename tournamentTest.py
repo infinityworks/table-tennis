@@ -68,6 +68,7 @@ class tournament():
 
 	# This method will allow the two players to input their scores and save it to a seperate results text file.
 	def player_scores(pair_list):
+		winners = []
 
 		for pair in pair_list:
 			player_1 = pair[0]
@@ -83,15 +84,17 @@ class tournament():
 			#	print "No one is this bad at ping pong, please input a score"
 
 			scores = fileediter("results.txt")
-			winner = []
+
 			if player_1_score < player_2_score:
-				winner.append(player_2)
+				winner = player_2
+				winners.append(player_2)
 			else:
-				winner.append(player_1)
+				winner = player_1
+				winners.append(player_1)
 
 			scores.write(player_1 + " scored " + str(player_1_score) + " - " + 
 				player_2 + " scored " + str(player_2_score) + " on " + time.strftime("%d/%m/%Y") + 
-				" at " + time.strftime("%H:%M:%S") + "\n" + "The winner is - " + winner[0] + "\n")
+				" at " + time.strftime("%H:%M:%S") + "\n" + "The winner is - " + winner + "\n")
 			print winner
 
 		return winner[0]
