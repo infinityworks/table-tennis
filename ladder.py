@@ -2,6 +2,7 @@ class Table_Tennis_Ladder:
 
 	file = 'names.txt'
 
+
 	def parse_names_from_file(self,path_to_file):
 		players_list = []
 		input_file = open(path_to_file, 'r')
@@ -16,23 +17,23 @@ class Table_Tennis_Ladder:
 		for name in names_list:
 			output_file.write("{}\n".format(name))
 
-	def tournament():
-		# manual input of the challenger and challengee 
-		challenger = raw_input('Who was the successful challenger? ').lower()
-		challengee = raw_input('Who was the unsuccessful challengee? ').lower()
+	def reorder_list_of_players(self, list_of_players, challenger, challengee):
+		
+		player_a = list_of_players.index(challenger)
+		player_b = list_of_players.index(challengee)
 
-		# player_a is the lower ranked challenger and player_b is the higher ranked challengee
-		# determines index of challenger and challengee in the list
-		player_a = player_list.index(challenger)
-		player_b = player_list.index(challengee)
 
-	def new_list_of_players(self, player_list, player_a, player_b):
-		top  = player_list[:player_b]
-		winner = player_list[player_a]
-		middle = player_list[player_b:player_a]
-		bottom = player_list[player_a + 1:]
+		top  = list_of_players[:player_b]
+		winner = list_of_players[player_a]
+		middle = list_of_players[player_b:player_a]
+		bottom = list_of_players[player_a + 1:]
+		reordered_player_list = top + [winner] + middle + bottom
 
-		# make winner a list instead of a string then concatenate the four lists
-		new_player_list = top + [winner] + middle + bottom
+		return reordered_player_list
 
-		return new_player_list
+	def defining_the_challenger_and_challengee(self, list_of_players, challenger, challengee):
+		for player in list_of_players:
+				if challenger in list_of_players and challengee in list_of_players:
+					return True
+				else:
+					return False

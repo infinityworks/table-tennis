@@ -22,5 +22,47 @@ class TestTableTennis(unittest.TestCase):
 
 		self.assertEqual(['dan\n', 'ivor\n', 'rebecca\n', 'rowan\n', 'john\n', 'bob\n'], return_names_list)
 
+	def test_reorder_list_of_players_Should_Move_Up_One_Space(self):
+		players_list = ['a', 'b', 'c']
+		ladder = Table_Tennis_Ladder()
+		reordered_player_list = ladder.reorder_list_of_players(players_list,"c", "b")
+
+		self.assertEqual(['a', 'c', 'b'], reordered_player_list)
+
+	def test_reorder_list_of_players_Should_Move_To_The_Top(self):
+		players_list = ['a', 'b', 'c']
+		ladder = Table_Tennis_Ladder()
+		reordered_player_list = ladder.reorder_list_of_players(players_list,"c", "a")
+
+		self.assertEqual(['c', 'a', 'b'], reordered_player_list)
+
+	def test_reorder_list_of_players_Should_Move_From_Middle_To_Top(self):
+		players_list = ['a', 'b', 'c']
+		ladder = Table_Tennis_Ladder()
+		reordered_player_list = ladder.reorder_list_of_players(players_list,"b", "a")
+
+		self.assertEqual(['b', 'a', 'c'], reordered_player_list)
+
+	def test_reorder_list_of_players_Only_Two_Players_Should_Swap(self):
+		players_list = ['a', 'b']
+		ladder = Table_Tennis_Ladder()
+		reordered_player_list = ladder.reorder_list_of_players(players_list,"b", "a")
+
+		self.assertEqual(['b', 'a'], reordered_player_list)
+
+	def test_reorder_list_of_players_Checking_Multiple_Players_In_List(self):
+		players_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+		ladder = Table_Tennis_Ladder()
+		reordered_player_list = ladder.reorder_list_of_players(players_list,"h", "c")
+
+		self.assertEqual(['a', 'b', 'h', 'c', 'd', 'e', 'f', 'g', 'i', 'j'], reordered_player_list)
+
+	def test_defining_the_challenger_and_challengee_Should_Return_Valid_Users(self):
+		player_names = ['a', 'b', 'c']
+		ladder = Table_Tennis_Ladder()
+		
+
+		self.assertTrue(ladder.defining_the_challenger_and_challengee(player_names, "a", "b"))
+
 if __name__ == '__main__':
     unittest.main()
