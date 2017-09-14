@@ -1,9 +1,9 @@
 # Maybe change to a pair creator????
-def draft(players):
+def create_pairs(contestants):
 	pair = []
 	pair_list = []
 
-	for player in players:
+	for player in contestants:
 		pair.append(player)
 		if len(pair) == 2:
 			pair_list.append(pair)
@@ -11,20 +11,26 @@ def draft(players):
 
 	return pair_list
 
+
 def file_splitter(file_contents):
-	contestants = []
+	contestants = file_contents.split("\n")
+	return contestants
 
-		for line in file_contents:
-			name = line.strip()
-			contestants.append(name)
+# This is the function that will attempt to read files and throw an error if it is unable to do so.
+def filereader(file):
+	try:
+		f = open(file, "r")
+		return f
+	except IOError:
+		print "Unfortunately the file " + file + " could not be opened, please try again"
+		exit()	
 
-		return contestants
-		
 
-file_contents = filereader("t-players.txt")
-file_splitter(file_contents)
-tournament_run(contestants)
 
-def tournament_run(player_info):
+#file_contents = filereader("t-players.txt")
+#file_splitter(file_contents)
+#tournament_run(contestants)
+
+#def tournament_run(player_info):
 
 
