@@ -48,9 +48,15 @@ class tournament_tests(unittest.TestCase):
 	
 	def test_filesplitter_splitintostrings_inlist(self):
 
-		result = file_splitter("a\n b\n c\n d\n)
+		result = file_splitter("a\nb\nc\nd")
 
 		self.assertEqual(["a","b","c","d"], result)
+
+	def test_filesplitter_splitintostrings_inlist(self):
+
+		result = file_splitter("eggplant\nbins\ncats\ndogs")
+
+		self.assertEqual(["eggplant","bins","cats","dogs"], result)
 
 
 
