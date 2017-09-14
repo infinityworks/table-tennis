@@ -96,8 +96,9 @@ class tournament():
 				player_2 + " scored " + str(player_2_score) + " on " + time.strftime("%d/%m/%Y") + 
 				" at " + time.strftime("%H:%M:%S") + "\n" + "The winner is - " + winner + "\n")
 			print winner
+		print winners
 
-		return winner[0]
+		return winners
 
 	player_info = filereader("t-players.txt")
 
