@@ -21,14 +21,14 @@ def fileediter(file):
 		print "Sorry old chap, file " + file + " has been lost to the wind."
 		exit()
 
-#class test(unittest.TestCase):
+class test(unittest.TestCase):
 
-	#def test_tournament_draftrandomiseplayers_returnrandomisedlist(self):
+	def test_tournament_randomshuffle_returnrandomisedlist(self):
 		#
-	#	testTournament = tournament()
+		testTournament = tournament()
 
 		#
-	#	result = testTournament.draft([alfonso,ben,clarence,dill])
+		result = testTournament.draft([alfonso,ben,clarence,dill])
 		#test?
 		# The issue here is the random function that is kind of difficult to test.
 		#self.assertEqual(result)
@@ -46,7 +46,7 @@ class tournament():
 			name = line.strip()
 			players.append(name)
 
-		random.shuffle(players)
+		#random.shuffle(players)
 		print players
 
 		pair = []
