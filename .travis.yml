@@ -17,4 +17,4 @@ after_success:
   #  docker push USER/REPO;
   #  fi
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker push USER/REPO;
+  - docker push infinityworks/table-tennis;
