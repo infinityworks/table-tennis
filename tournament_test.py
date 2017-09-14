@@ -1,44 +1,45 @@
 import unittest
-from tournament import draft
+from tournament import create_pairs
 from tournament import file_splitter
+from tournament import player_scores
 
 class tournament_tests(unittest.TestCase):
 
 	def test_splitlistintopairs(self):
 
-		result = draft(["a","b","c","d"])
+		result = create_pairs(["a","b","c","d"])
 
 		self.assertEqual([["a","b"],["c","d"]], result)
 
-	def test_draft_splitnonamesadded(self):
+	def test_create_pairs_splitnonamesadded(self):
 
-		result = draft([])
+		result = create_pairs([])
 
 		self.assertEqual([], result)
 
-	def test_draft_splitnolistadded(self):
+	def test_create_pairs_splitnolistadded(self):
 
-		result = draft("")
+		result = create_pairs("")
 
 		self.assertEqual([],result)
 
-	def test_draft_splittwoplayers(self):
+	def test_create_pairs_splittwoplayers(self):
 
-		result = draft(["a","b"])
+		result = create_pairs(["a","b"])
 
 		self.assertEqual([["a","b"]], result)
 
 	'''
 	def test_tournament_draftsplit_addoneplayer(self):
 
-		result = draft(["a"])
+		result = create_pairs(["a"])
 
 		self.assertEqual([["a"]], result)
 
 
 	def test_tournament_draftsplit_listoddnumbernames(self):
 
-		result = draft(["a","b","c","d","e"])
+		result = create_pairs(["a","b","c","d","e"])
 
 		self.assertEqual([["a","b"],["c","d"]["e"]], result)
 
@@ -57,6 +58,7 @@ class tournament_tests(unittest.TestCase):
 		result = file_splitter("eggplant\nbins\ncats\ndogs")
 
 		self.assertEqual(["eggplant","bins","cats","dogs"], result)
+
 
 
 
