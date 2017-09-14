@@ -48,10 +48,24 @@ class tournament_tests(unittest.TestCase):
 	
 	def test_filesplitter_splitintostrings_inlist(self):
 
-		result = file_splitter("a\n b\n c\n d\n)
-
+		result = file_splitter("a\n b\n c\n d\n")
+		
 		self.assertEqual(["a","b","c","d"], result)
 
 
+	#Input [John,Rowan] if John won or [Rowan, John] if John won.
+
+	def test_resulttofile_inputabthenawin(self):
+
+		result = resulttofile(["a,b"])
+
+		self.assertEqual("a", result)
+
+
+	def test_resulttofile_inputabthenawin(self):
+
+		result = resulttofile(["b,a"])
+
+		self.assertEqual("b", result)
 
 
