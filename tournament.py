@@ -1,4 +1,16 @@
-# Maybe change to a pair creator????
+import sys
+
+def inputarg(arglist):
+	if arglist[1] == "init":
+		print "ok"
+		return "ok"
+	else:
+		print "not ok"
+		print arglist
+		return "please enter one of the following arguments: init"
+
+
+
 def create_pairs(contestants):
 	pair = []
 	pair_list = []
@@ -25,6 +37,16 @@ def filereader(file):
 		print "Unfortunately the file " + file + " could not be opened, please try again"
 		exit()	
 
+def find_winner(pair_list, winner):
+	if winner in pair_list:
+		return winner
+	return "Didn't Play"
+
+def game_result(pair_list):
+	winner = raw_input("Who won the game? ")
+	find_winner(pair_list, winner)
+
+
 
 
 #file_contents = filereader("t-players.txt")
@@ -33,4 +55,5 @@ def filereader(file):
 
 #def tournament_run(player_info):
 
-
+if __name__ == '__main__':
+	inputarg(sys.argv)

@@ -1,8 +1,16 @@
 import unittest
 from tournament import create_pairs
 from tournament import file_splitter
+from tournament import find_winner
+from tournament import inputarg
 
 class tournament_tests(unittest.TestCase):
+
+	def test_inputarg_incorrectcommand_invalidmessage(self):
+
+		result = inputarg(["dog"])
+
+		self.assertEqual("please enter one of the following arguments: init", result)
 	
 	def test_filesplitter_splitintostrings_inlist(self):
 
@@ -54,8 +62,20 @@ class tournament_tests(unittest.TestCase):
 
 		self.assertEqual([["a","b"],["c","d"]["e"]], result)
 
-
 	'''
+
+	def test_findwinner_addwinnername(self):
+
+		result = find_winner(["a","b"], "a")
+
+		self.assertEqual("a", result)
+
+	def test_findwinner_addwinnername(self):
+
+		result = find_winner(["a","b"], "c")
+
+		self.assertEqual("Didn't Play", result)
+
 
 	#Input [John,Rowan] if John won or [Rowan, John] if John won.
 
