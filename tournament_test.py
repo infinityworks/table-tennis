@@ -60,6 +60,20 @@ class tournament_tests(unittest.TestCase):
 		self.assertEqual(["eggplant","bins","cats","dogs"], result)
 
 
+	#Input [John,Rowan] if John won or [Rowan, John] if John won.
+
+	def test_resulttofile_inputabthenawin(self):
+
+		result = resulttofile(["a,b"])
+
+		self.assertEqual("a", result)
+
+
+	def test_resulttofile_inputabthenawin(self):
+
+		result = resulttofile(["b,a"])
+
+		self.assertEqual("b", result)
 
 
 
