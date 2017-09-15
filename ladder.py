@@ -32,8 +32,22 @@ class Table_Tennis_Ladder:
 		return reordered_player_list
 
 	def defining_the_challenger_and_challengee(self, list_of_players, challenger, challengee):
-		for player in list_of_players:
-				if challenger in list_of_players and challengee in list_of_players:
-					return True
-				else:
-					return False
+		if challenger in list_of_players and challengee in list_of_players:
+			return True
+		else:
+			return False
+
+	def is_Challenger_Lower_Rank(self, list_of_players, challenger, challengee):
+		if list_of_players.index(challenger) > list_of_players.index(challengee):
+			return True
+		else:
+			return False
+
+
+	def main()
+		ladder_list = parse_names_from_file(file)
+
+		challenger = raw_input('Who was the successful challenger? ').lower()
+		challengee = raw_input('Who was the unsuccessful challengee? ').lower()
+
+		if (is_Challenger_Lower_Rank and defining_the_challenger_and_challengee)

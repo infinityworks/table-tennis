@@ -60,9 +60,17 @@ class TestTableTennis(unittest.TestCase):
 	def test_defining_the_challenger_and_challengee_Should_Return_Valid_Users(self):
 		player_names = ['a', 'b', 'c']
 		ladder = Table_Tennis_Ladder()
-		
-
 		self.assertTrue(ladder.defining_the_challenger_and_challengee(player_names, "a", "b"))
+
+	def test_is_Challenger_Lower_Rank_Should_Return_True(self):
+		player_names = ['a', 'b', 'c']
+		ladder = Table_Tennis_Ladder()
+		self.assertTrue(ladder.is_Challenger_Lower_Rank(player_names, "c", "a"))
+
+	def test_is_Challenger_Lower_Rank_Should_Return_False(self):
+		player_names = ['a', 'b', 'c']
+		ladder = Table_Tennis_Ladder()
+		self.assertFalse(ladder.is_Challenger_Lower_Rank(player_names, "a", "c"))
 
 if __name__ == '__main__':
     unittest.main()
