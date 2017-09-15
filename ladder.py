@@ -44,10 +44,10 @@ class Table_Tennis_Ladder:
 			return False
 
 
-	def main()
-		ladder_list = parse_names_from_file(file)
+	# def main()
+	# 	ladder_list = parse_names_from_file(file)
 
-		challenger = raw_input('Who was the successful challenger? ').lower()
-		challengee = raw_input('Who was the unsuccessful challengee? ').lower()
+	# 	challenger = raw_input('Who was the successful challenger? ').lower()
+	# 	challengee = raw_input('Who was the unsuccessful challengee? ').lower()
 
-		if (is_Challenger_Lower_Rank and defining_the_challenger_and_challengee)
+	# 	if (is_Challenger_Lower_Rank and defining_the_challenger_and_challengee)
