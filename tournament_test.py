@@ -6,12 +6,24 @@ from tournament import inputarg
 
 class tournament_tests(unittest.TestCase):
 
+	#inputarg tests
+
 	def test_inputarg_incorrectcommand_invalidmessage(self):
 
-		result = inputarg(["dog"])
+		result = inputarg(['tournament.py', 'dog'])
 
 		self.assertEqual("please enter one of the following arguments: init", result)
 	
+	def test_inputarg_initcommand_okmessage(self):
+
+		result = inputarg(['tournament.py', 'init'])
+
+		self.assertEqual("ok", result)
+
+
+
+	#Function Tests
+    
 	def test_filesplitter_splitintostrings_inlist(self):
 
 		result = file_splitter("a\nb\nc\nd")

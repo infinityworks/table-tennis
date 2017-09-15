@@ -1,7 +1,8 @@
 import sys
 
 def inputarg(arglist):
-	if arglist[1] == "init":
+	if arglist[1] == 'init':
+		print arglist
 		print "ok"
 		return "ok"
 	else:
