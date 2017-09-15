@@ -26,6 +26,7 @@ bottom = player_list[player_a + 1:]
 
 # make winner a list instead of a string then concatenate the four lists
 new_player_list = top + [winner] + middle + bottom
+print new_player_list
 
 # write permission
 output_file = open('names.txt', 'w')

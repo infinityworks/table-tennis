@@ -1,0 +1,20 @@
+sudo: required
+
+language: python
+python:
+ - "2.7"
+
+services:
+  - docker
+
+script: 
+  # - nosetests
+  - docker build -t infinityworks/table-tennis .
+
+after_success:
+  #- if [ "$TRAVIS_BRANCH" == "master" ]; then
+  #  docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  #  docker push USER/REPO;
+  #  fi
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - docker push infinityworks/table-tennis;
