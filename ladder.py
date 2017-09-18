@@ -13,12 +13,12 @@ class Table_Tennis_Ladder:
 	def write_names_from_list_to_file(self,path_to_file,names_list):
 		output_file = open(path_to_file, 'w')
 
-		# each player in reordered list added back into 
+		# each player in reordered list added back into
 		for name in names_list:
 			output_file.write("{}\n".format(name))
 
 	def reorder_list_of_players(self, list_of_players, challenger, challengee):
-		
+
 		player_a = list_of_players.index(challenger)
 		player_b = list_of_players.index(challengee)
 
@@ -44,10 +44,23 @@ class Table_Tennis_Ladder:
 			return False
 
 
-	# def main()
-	# 	ladder_list = parse_names_from_file(file)
-
-	# 	challenger = raw_input('Who was the successful challenger? ').lower()
-	# 	challengee = raw_input('Who was the unsuccessful challengee? ').lower()
-
-	# 	if (is_Challenger_Lower_Rank and defining_the_challenger_and_challengee)
+# 	def main(self):
+#
+# 		ladder_list = self.parse_names_from_file(file)
+# 		challenger = raw_input('Who was the successful challenger? ').lower()
+# 		challengee = raw_input('Who was the unsuccessful challengee? ').lower()
+#
+# 		while exists:
+# 			if self.is_Challenger_Lower_Rank(ladder_list, challenger, challengee) and self.defining_the_challenger_and_challengee(ladder_list, challenger, challengee):
+# 				self.reorder_list_of_players(ladder_list, challenger, challengee)
+# 				self.write_names_from_list_to_file(file)
+# 				print "Players have been rearranged" + self.parse_names_from_file(file)
+# 				exists = False
+# 			else:
+# 				print "Challenger or Challengee doesn't exist"
+# 				exists = True
+#
+#
+#
+# if __name__ == '__main__':
+# 	Table_Tennis_Ladder().main()
