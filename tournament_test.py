@@ -6,7 +6,7 @@ from tournament import inputarg
 
 class tournament_tests(unittest.TestCase):
 
-	#inputarg tests
+#inputarg tests
 
 	def test_inputarg_incorrectcommand_invalidmessage(self):
 
@@ -22,7 +22,7 @@ class tournament_tests(unittest.TestCase):
 
 
 
-	#Function Tests
+#Function Tests
     
 	def test_filesplitter_splitintostrings_inlist(self):
 
@@ -30,7 +30,7 @@ class tournament_tests(unittest.TestCase):
 
 		self.assertEqual(["a","b","c","d"], result)
 
-	def test_filesplitter_splitintostrings_inlist(self):
+	def test_filesplitter_splitintostrings_wordsinlist(self):
 
 		result = file_splitter("eggplant\nbins\ncats\ndogs")
 
@@ -60,7 +60,24 @@ class tournament_tests(unittest.TestCase):
 
 		self.assertEqual([["a","b"]], result)
 
-	'''
+	def test_findwinner_addwinnername(self):
+
+		result = find_winner(["a","b"], "a")
+
+		self.assertEqual("a", result)
+
+	def test_findwinner_nonplayingname(self):
+
+		result = find_winner(["a","b"], "c")
+
+		self.assertEqual("Didn't Play", result)
+
+	def test_generatetree_createtree(self):
+
+		result = generate_tree(["a","b"],["c","d"])
+
+
+'''
 	def test_tournament_draftsplit_addoneplayer(self):
 
 		result = create_pairs(["a"])
@@ -74,24 +91,10 @@ class tournament_tests(unittest.TestCase):
 
 		self.assertEqual([["a","b"],["c","d"]["e"]], result)
 
-	'''
-
-	def test_findwinner_addwinnername(self):
-
-		result = find_winner(["a","b"], "a")
-
-		self.assertEqual("a", result)
-
-	def test_findwinner_addwinnername(self):
-
-		result = find_winner(["a","b"], "c")
-
-		self.assertEqual("Didn't Play", result)
-
 
 	#Input [John,Rowan] if John won or [Rowan, John] if John won.
 
-	'''
+
 	def test_resulttofile_inputabthenawin(self):
 
 		result = resulttofile(["a","b"])
@@ -104,7 +107,7 @@ class tournament_tests(unittest.TestCase):
 		result = resulttofile(["b,a"])
 
 		self.assertEqual("b", result)
-	'''
+'''
 
 
 

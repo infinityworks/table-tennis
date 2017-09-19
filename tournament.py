@@ -11,7 +11,6 @@ def inputarg(arglist):
 		return "please enter one of the following arguments: init"
 
 
-
 def create_pairs(contestants):
 	pair = []
 	pair_list = []
