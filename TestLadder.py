@@ -8,7 +8,14 @@ class TestTableTennis(unittest.TestCase):
 		ladder = Table_Tennis_Ladder()
 		parsed_names_list = ladder.parse_names_from_file(file_path)
 		self.assertEqual(['dan', 'ivor', 'rebecca', 'rowan', 'john', 'bob'], parsed_names_list)
-			
+		
+	def test_file_parser_Should_return_exception(self):
+		file_path = 'names.txt'
+		ladder = Table_Tennis_Ladder()
+		parsed_names_list = ladder.parse_names_from_file(file_path)
+		self.assertEqual(['dan', 'ivor', 'rebecca', 'rowan', 'john', 'bob'], parsed_names_list)
+	
+
 	def test_parsed_file_Should_write_to_file(self):
 		file_path = 'test_write.txt'
 		names_list = ['dan', 'ivor', 'rebecca', 'rowan', 'john', 'bob']

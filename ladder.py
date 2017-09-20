@@ -5,9 +5,14 @@ class Table_Tennis_Ladder:
 
 	def parse_names_from_file(self,path_to_file):
 		players_list = []
-		input_file = open(path_to_file, 'r')
-		for names in input_file:
-			players_list.append(names.strip())
+		try:
+			input_file = open(path_to_file, 'r')
+			for names in input_file:
+				players_list.append(names.strip())
+		except IOError:
+			print file + " doesn't exist."
+			exit()
+		
 		return players_list
 
 	def write_names_from_list_to_file(self,path_to_file,names_list):
