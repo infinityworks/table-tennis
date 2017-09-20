@@ -48,6 +48,13 @@ class Table_Tennis_Ladder:
 		else:
 			return False
 
+	def input_result(self, ladder_list, challenger, challengee):
+
+		if self.is_Challenger_Lower_Rank(ladder_list, challenger, challengee) and self.defining_the_challenger_and_challengee(ladder_list, challenger, challengee):
+			return self.reorder_list_of_players(ladder_list, challenger, challengee)
+		else:
+			return ladder_list
+
 
 # 	def main(self):
 #
