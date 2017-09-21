@@ -44,15 +44,24 @@ class Table_Tennis_Ladder:
 
 	def is_Challenger_Lower_Rank(self, list_of_players, challenger, challengee):
 		if list_of_players.index(challenger) > list_of_players.index(challengee):
+
 			return True
 		else:
+
 			return False
 
 	def input_result(self, ladder_list, challenger, challengee):
 
-		if self.is_Challenger_Lower_Rank(ladder_list, challenger, challengee) and self.defining_the_challenger_and_challengee(ladder_list, challenger, challengee):
+		if self.defining_the_challenger_and_challengee(ladder_list, challenger, challengee) and self.is_Challenger_Lower_Rank(ladder_list, challenger, challengee):
+			print ladder_list
+			print challenger
+			print challengee
+
+			print self.defining_the_challenger_and_challengee(ladder_list, challenger, challengee)
+			print self.is_Challenger_Lower_Rank(ladder_list, challenger, challengee)
 			return self.reorder_list_of_players(ladder_list, challenger, challengee)
 		else:
+			print "Y"
 			return ladder_list
 
 
